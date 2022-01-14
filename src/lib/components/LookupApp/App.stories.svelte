@@ -14,7 +14,8 @@
     assetTag: { control: 'text' },
     title: { control: 'text' },
     totalCount: { control: 'number' },
-    policyId: { control: 'text' }
+    policyId: { control: 'text' },
+    verified: { control: 'boolean' }
   }}
 />
 
@@ -63,6 +64,8 @@
     assetTag: 'muggo',
     title: 'Muggo Lookup',
     totalCount: 1200,
-    policyId: 'c263bfde10889d62d63b158bed9906795226c044138ee490f1b785d4'
+    policyId: 'c263bfde10889d62d63b158bed9906795226c044138ee490f1b785d4',
+    verified: true,
+    assetTransform: (n) => n.replace(' #', '')
   }}
 />

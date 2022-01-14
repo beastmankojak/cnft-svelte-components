@@ -12,6 +12,8 @@
   export let project;
   export let alt;
   export let policyId;
+  export let verified;
+  export let assetTransform;
 
   const dispatch = createEventDispatcher();
   const { open } = getContext('simple-modal');
@@ -23,7 +25,9 @@
       traitList,
       project,
       alt,
-      policyId
+      policyId,
+      verified,
+      assetTransform
     });
   };
 

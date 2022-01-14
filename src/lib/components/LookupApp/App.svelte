@@ -12,6 +12,8 @@
   export let title;
   export let totalCount;
   export let policyId;
+  export let verified;
+  export let assetTransform;
 
   let assetsLoading = false;
   let assetsError = '';
@@ -117,6 +119,8 @@
         {project}
         {alt}
         {policyId}
+        {verified}
+        {assetTransform}
         bind:page
         on:updatePage={updatePage}
       />

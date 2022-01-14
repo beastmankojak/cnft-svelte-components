@@ -2,12 +2,14 @@ const searchForSale = async ({
   project,
   name,
   verified = true,
-  policyId
+  policyId,
+  assetTransform
 }: {
   project?: string;
   name: string;
   verified: boolean;
   policyId: string;
+  assetTransform?: (string) => string;
 }) => {
   const response = await fetch('https://api.cnft.io/market/listings', {
     method: 'POST',
@@ -37,7 +39,8 @@ const searchForSale = async ({
     asset: { assetId, policyId: cnftPolicyId },
     price
   } = result || { asset: {} };
-  return result && assetId === name && (!policyId || policyId === cnftPolicyId)
+  const transformedName = assetTransform ? assetTransform(name) : name;
+  return result && assetId === transformedName && (!policyId || policyId === cnftPolicyId)
     ? {
         forSale: true,
         href: `https://cnft.io/token/${_id}`,
