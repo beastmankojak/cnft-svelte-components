@@ -9,6 +9,7 @@
   export let totalCount;
   export let sort;
   export let name;
+  export let disclaimer;
 
   const fetchAttributes = async () => {
     const response = await fetch(`${baseUrl}/attributes/`);
@@ -64,6 +65,9 @@
         <input type="text" id="name" bind:value={name} on:keypress={handleKeypress} />
       </li>
     </ul>
+    {#if disclaimer}
+      <div class="warning">{disclaimer}</div>
+    {/if}
     <button on:click id="lfg">LFG</button>
     <button on:click={reset}>Reset</button>
   </div>
@@ -86,5 +90,10 @@
   }
   label {
     display: inline;
+  }
+  .warning {
+    font-weight: bold;
+    color: darkred;
+    margin-bottom: 1em;
   }
 </style>

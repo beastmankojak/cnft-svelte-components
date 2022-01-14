@@ -14,6 +14,7 @@
   export let policyId;
   export let verified;
   export let assetTransform;
+  export let disclaimer;
 
   let assetsLoading = false;
   let assetsError = '';
@@ -101,6 +102,7 @@
     {baseUrl}
     {traitList}
     {totalCount}
+    {disclaimer}
     on:click={fetchAssets}
     bind:sort
     bind:allAttributes
