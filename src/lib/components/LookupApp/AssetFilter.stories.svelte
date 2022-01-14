@@ -8,7 +8,7 @@
   component={AssetFilter}
   argTypes={{
     baseUrl: { control: 'text' },
-    totalCount: { control: 'text' }
+    totalCount: { control: 'number' }
   }}
 />
 
@@ -20,6 +20,6 @@
   name="BAC Christmas"
   args={{
     baseUrl: 'http://localhost:3000/bac-christmas',
-    totalCount: '300'
+    totalCount: 300
   }}
 />

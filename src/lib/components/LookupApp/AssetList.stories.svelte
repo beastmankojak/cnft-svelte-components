@@ -10,7 +10,7 @@
   argTypes={{
     assets: { control: 'array' },
     allAttributes: { control: 'array' },
-    page: { control: 'text' },
+    page: { control: 'number' },
     traitList: { control: 'array' },
     project: { control: 'text' },
     alt: { control: 'text' },

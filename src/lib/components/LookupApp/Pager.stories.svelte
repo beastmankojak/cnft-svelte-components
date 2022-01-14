@@ -7,8 +7,8 @@
   title="LookupApp/Pager"
   component={Pager}
   argTypes={{
-    page: { control: 'text' },
-    length: { control: 'text' },
+    page: { control: 'number' },
+    length: { control: 'number' },
     onChange: { action: 'onChange' }
   }}
 />
@@ -28,7 +28,7 @@
 <Story
   name="Two pages"
   args={{
-    label: 'page: 1',
+    page: 1,
     length: 75
   }}
 />

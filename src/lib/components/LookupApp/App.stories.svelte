@@ -13,7 +13,7 @@
     baseUrl: { control: 'text' },
     assetTag: { control: 'text' },
     title: { control: 'text' },
-    totalCount: { control: 'text' },
+    totalCount: { control: 'number' },
     policyId: { control: 'text' }
   }}
 />
