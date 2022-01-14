@@ -24,13 +24,13 @@
     });
 </script>
 
+<h1>{title}</h1>
+<div>
+  <p>{description}</p>
+</div>
 {#await fetchRarity()}
   <h2>Loading...</h2>
 {:then rarity}
-  <h1>{title}</h1>
-  <div>
-    <p>{description}</p>
-  </div>
   <Totals totals={rarity.stats} {totalCount} />
   {#each traitList as trait}
     <TraitTable caption={titleCase(trait)} attributes={getAttributes(rarity.attributes[trait])} />
