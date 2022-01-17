@@ -36,7 +36,7 @@
 {#await fetchAttributes()}
   <h2>Loading...</h2>
 {:then attrs}
-  <div>
+  <div class="asset-filter">
     <p>
       Total assets minted: {attrs.stats.totalCount} / {totalCount}, last updated at {formatDate(
         attrs.stats.lastUpdate
