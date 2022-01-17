@@ -10,6 +10,7 @@
   export let sort;
   export let name;
   export let disclaimer;
+  export let rarityUrl = 'rarity.html';
 
   const fetchAttributes = async () => {
     const response = await fetch(`${baseUrl}/attributes/`);
@@ -41,15 +42,17 @@
         attrs.stats.lastUpdate
       )}
     </p>
-    <p><a href="rarity.html">Trait rarity chart</a></p>
+    <p><a href={rarityUrl}>Trait rarity chart</a></p>
     <ul>
       {#each traitList as trait}
-        <TraitDropdown
-          bind:value={$filter[trait]}
-          id={`${trait}Dropdown`}
-          label={titleCase(trait)}
-          attributes={attrs.attributes[trait]}
-        />
+        <li>
+          <TraitDropdown
+            bind:value={$filter[trait]}
+            id={`${trait}Dropdown`}
+            label={titleCase(trait)}
+            attributes={attrs.attributes[trait]}
+          />
+        </li>
       {/each}
       <li>
         <label for="sortDropdown">Sort</label>

@@ -16,7 +16,8 @@
     totalCount: { control: 'number' },
     policyId: { control: 'text' },
     verified: { control: 'boolean' },
-    disclaimer: { control: 'text' }
+    disclaimer: { control: 'text' },
+    rarityUrl: { control: 'text' }
   }}
 />
 
@@ -69,6 +70,7 @@
     verified: true,
     assetTransform: (n) => n.replace(' #', ''),
     disclaimer:
-      'Rarity shown here is not final.  The Muggos are currently in the early stages and rarity tables will not be final until all Muggos are minted!  This is for entertainment purposes only!'
+      'Rarity shown here is not final.  The Muggos are currently in the early stages and rarity tables will not be final until all Muggos are minted!  This is for entertainment purposes only!',
+    rarityUrl: '/rarity'
   }}
 />

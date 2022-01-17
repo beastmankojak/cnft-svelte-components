@@ -8,7 +8,9 @@
   component={AssetFilter}
   argTypes={{
     baseUrl: { control: 'text' },
-    totalCount: { control: 'number' }
+    totalCount: { control: 'number' },
+    rarityUrl: { control: 'text' },
+    traitList: { control: 'array' }
   }}
 />
 
@@ -20,6 +22,7 @@
   name="BAC Christmas"
   args={{
     baseUrl: 'http://localhost:3000/bac-christmas',
-    totalCount: 300
+    totalCount: 300,
+    traitList: ['hat', 'body', 'eyes', 'face', 'clothes', 'texture', 'accessory', 'background']
   }}
 />

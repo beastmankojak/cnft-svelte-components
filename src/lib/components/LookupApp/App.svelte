@@ -15,6 +15,7 @@
   export let verified;
   export let assetTransform;
   export let disclaimer;
+  export let rarityUrl;
 
   let assetsLoading = false;
   let assetsError = '';
@@ -103,6 +104,7 @@
     {traitList}
     {totalCount}
     {disclaimer}
+    {rarityUrl}
     on:click={fetchAssets}
     bind:sort
     bind:allAttributes
