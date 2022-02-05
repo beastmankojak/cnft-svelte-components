@@ -36,11 +36,11 @@ const searchForSale = async ({
   const [result] = results;
   const {
     _id,
-    asset: { assetId, policyId: cnftPolicyId },
+    assets,
     price
   } = result || { asset: {} };
   const transformedName = assetTransform ? assetTransform(name) : name;
-  return result && assetId === transformedName && (!policyId || policyId === cnftPolicyId)
+  return result && assets.some(({assetId, policyId: cnftPolicyId}) => assetId === transformedName && (!policyId || policyId === cnftPolicyId))
     ? {
         forSale: true,
         href: `https://cnft.io/token/${_id}`,
