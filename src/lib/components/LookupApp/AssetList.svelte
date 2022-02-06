@@ -14,6 +14,7 @@
   export let policyId;
   export let verified;
   export let assetTransform;
+  export let placeholder;
 
   const dispatch = createEventDispatcher();
   const { open } = getContext('simple-modal');
@@ -40,7 +41,7 @@
   <Pager on:change={updatePage} bind:page length={assets.length} />
   <ul>
     {#each assets as asset}
-      <li on:click={() => showAsset(asset)}><AssetPreview {asset} {alt} /></li>
+      <li on:click={() => showAsset(asset)}><AssetPreview {asset} {alt} {placeholder} /></li>
     {/each}
   </ul>
   <Pager on:change={updatePage} bind:page length={assets.length} />

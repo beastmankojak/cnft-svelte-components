@@ -26,3 +26,15 @@
     alt: 'Derpbird'
   }}
 />
+
+<Story
+  name="Drapes"
+  args={{
+    asset: {
+      image: 'ipfs://QmVooep1z5jjGoizD46W2cV7qGqUFrbgGwEZ9MY9TjbTKA',
+      name: 'Derp Ape #00175'
+    },
+    alt: 'Drape',
+    placeholder: 'https://ipfs.blockfrost.dev/ipfs/QmNWrVBGXteHD7MdFipH4Jpn95XayQ8i2fHt7u6SLcMqKs'
+  }}
+/>

@@ -16,7 +16,8 @@
   export let assetTransform;
   export let disclaimer;
   export let rarityUrl;
-
+  export let placeholder = '';
+  
   let assetsLoading = false;
   let assetsError = '';
   let assets = [];
@@ -125,10 +126,54 @@
         {policyId}
         {verified}
         {assetTransform}
+        {placeholder}
         bind:page
         on:updatePage={updatePage}
       />
     </Modal>
+    <script>
+      (async () => {
+        const pause = (timeout) => {
+          const p = new Promise((resolve, reject) => {
+            setTimeout(resolve, timeout);
+          });
+          return p;
+        }
+
+        const loaded = (image, resolve) => {
+          const fn = () => {
+            image.removeEventListener('load', fn);
+            image.removeEventListener('error', fn);
+            resolve();
+          }
+
+          return fn;
+        }
+
+        const updateImage = (image) => 
+          new Promise((resolve, reject) => {
+            const src = image.getAttribute('data-src');
+            image.removeAttribute('data-src');
+            image.setAttribute('src', src);
+            image.addEventListener('load', loaded(image, resolve));
+            image.addEventListener('error', loaded(image, resolve));
+          });
+
+        const images = document.querySelectorAll('img[data-src]');
+        let i = 0;
+        const next = () => {
+          if (i < images.length) {
+            const p = updateImage(images[i]);
+            i++;
+            return p.then(() => pause(10)).then(next);
+          }
+        }
+
+        for (let j = 0; j < 10; j++) {
+          next();
+        }
+      })()
+    </script>
   {/if}
 </main>
 
