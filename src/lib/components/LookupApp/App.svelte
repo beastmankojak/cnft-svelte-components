@@ -17,11 +17,14 @@
   export let disclaimer;
   export let rarityUrl;
   export let placeholder = '';
+  export let customSort = {};
+
+  const { defaultSort } = customSort;
   
   let assetsLoading = false;
   let assetsError = '';
   let assets = [];
-  let sort = 'nameAsc';
+  let sort = defaultSort || 'nameAsc';
   let name = '';
   let page = 1;
   let currentFilter;
@@ -106,6 +109,7 @@
     {totalCount}
     {disclaimer}
     {rarityUrl}
+    {customSort}
     on:click={fetchAssets}
     bind:sort
     bind:allAttributes

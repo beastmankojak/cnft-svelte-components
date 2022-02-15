@@ -11,6 +11,7 @@
   export let name;
   export let disclaimer;
   export let rarityUrl = 'rarity.html';
+  export let customSort = {};
 
   const fetchAttributes = async () => {
     const response = await fetch(`${baseUrl}/attributes/`);
@@ -31,6 +32,14 @@
       document.getElementById('lfg').click();
     }
   };
+
+  const { sortOptions: customSortOptions } = customSort;
+  const sortOptions = customSortOptions || [
+    { value: 'nameAsc', label: 'Name ⬆️' },
+    { value: 'nameDesc', label: 'Name ⬇️' },
+    { value: 'rankAsc', label: 'Rank ⬆️' },
+    { value: 'rankDesc', label: 'Rank ⬇️' },
+  ];
 </script>
 
 {#await fetchAttributes()}
@@ -57,10 +66,9 @@
       <li>
         <label for="sortDropdown">Sort</label>
         <select bind:value={sort} id="sortDropdown">
-          <option value="nameAsc">Name ⬆️</option>
-          <option value="nameDesc">Name ⬇️</option>
-          <option value="rankAsc">Rank ⬆️</option>
-          <option value="rankDesc">Rank ⬇️</option>
+          {#each sortOptions as { value, label }}
+            <option {value}>{label}</option>
+          {/each}
         </select>
       </li>
       <li>
