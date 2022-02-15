@@ -5,6 +5,7 @@
   import { filter } from '$lib/stores/assetLookupStore';
 
   export let traitList = [];
+  export let displayTraitList = traitList;
   export let project;
   export let alt;
   export let baseUrl;
@@ -125,7 +126,7 @@
       <AssetList
         {assets}
         {allAttributes}
-        {traitList}
+        traitList={displayTraitList}
         {project}
         {alt}
         {policyId}
