@@ -8,7 +8,8 @@
   export let alt;
   export let policyId;
   export let verified;
-  export let assetTransform;
+  export let assetTransform = null;
+  export let marketplaceSearchParam = 'name';
 </script>
 
 <div>
@@ -25,7 +26,7 @@
     <li><span>&nbsp;Rarity score:</span> {asset.rarityScore.toFixed(2)}</li>
     <li>
       <span>&nbsp;For sale:</span>
-      {#await searchForSale({ project, name: asset.name, verified, policyId, assetTransform })}
+      {#await searchForSale({ project, name: asset[marketplaceSearchParam], verified, policyId, assetTransform })}
         Loading...
       {:then listing}{#if listing.forSale}
           <a href={listing.href} target="_blank">{listing.price} ₳</a>

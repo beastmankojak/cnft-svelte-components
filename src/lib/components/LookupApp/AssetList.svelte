@@ -13,7 +13,8 @@
   export let alt;
   export let policyId;
   export let verified;
-  export let assetTransform;
+  export let assetTransform = null;
+  export let marketplaceSearchParam = 'name';
   export let placeholder;
 
   const dispatch = createEventDispatcher();
@@ -28,7 +29,8 @@
       alt,
       policyId,
       verified,
-      assetTransform
+      assetTransform,
+      marketplaceSearchParam,
     });
   };
 

@@ -13,9 +13,10 @@
   export let totalCount;
   export let policyId;
   export let verified;
-  export let assetTransform;
+  export let assetTransform = null;
+  export let marketplaceSearchParam = 'name';
   export let disclaimer;
-  export let rarityUrl;
+  export let rarityUrl = 'rarity.html';
   export let placeholder = '';
   export let customSort = {};
 
@@ -130,6 +131,7 @@
         {policyId}
         {verified}
         {assetTransform}
+        {marketplaceSearchParam}
         {placeholder}
         bind:page
         on:updatePage={updatePage}
