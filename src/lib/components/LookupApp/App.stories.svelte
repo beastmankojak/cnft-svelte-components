@@ -74,3 +74,19 @@
     rarityUrl: '/rarity'
   }}
 />
+
+<Story
+  name="Horses"
+  args={{
+    traitList: ['Back Left Leg', 'Back Right Leg', 'Body', 'Color', 'Front Left Leg', 'Front Right Leg', 'Gender', 'Head'],
+    numericTraitList: ['Age', 'acceleration', 'agility', 'endurance', 'speed', 'stamina', 'total'],
+    project: 'EquineNFT Pioneer Horses',
+    alt: 'Equine Horse',
+    baseUrl: 'http://localhost:3000/horses',
+    assetTag: 'horses',
+    title: 'Equine horses lookup',
+    totalCount: 14125,
+    policyId: '30ed3d95db1d6bb2c12fc5228a2986eab4553f192a12a4607780e15b',
+    verified: true
+  }}
+/>

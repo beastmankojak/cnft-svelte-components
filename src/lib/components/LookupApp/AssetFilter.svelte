@@ -1,11 +1,13 @@
 <script>
   import TraitDropdown from './TraitDropdown.svelte';
+  import NumericTraitField from './NumericTraitField.svelte';
   import { formatDate, titleCase } from '$lib/utils';
   import { filter } from '$lib/stores/assetLookupStore';
 
   export let baseUrl;
   export let allAttributes;
   export let traitList;
+  export let numericTraitList = [];
   export let totalCount;
   export let sort;
   export let name;
@@ -60,6 +62,15 @@
             id={`${trait}Dropdown`}
             label={titleCase(trait)}
             attributes={attrs.attributes[trait]}
+          />
+        </li>
+      {/each}
+      {#each numericTraitList as trait}
+        <li>
+          <NumericTraitField
+            bind:value={$filter[trait]}
+            id={`${trait}Field`}
+            label={titleCase(trait)}
           />
         </li>
       {/each}

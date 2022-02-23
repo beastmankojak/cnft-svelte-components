@@ -5,7 +5,9 @@
   import { filter } from '$lib/stores/assetLookupStore';
 
   export let traitList = [];
-  export let displayTraitList = traitList;
+  export let numericTraitList = [];
+  let combinedTraitList = [...traitList, ...numericTraitList]
+  export let displayTraitList = combinedTraitList;
   export let project;
   export let alt;
   export let baseUrl;
@@ -32,7 +34,7 @@
   let currentFilter;
   let allAttributes = {};
 
-  $filter = traitList.reduce((acc, trait) => {
+  $filter = combinedTraitList.reduce((acc, trait) => {
     acc[trait] = '';
     return acc;
   }, {});
@@ -86,7 +88,7 @@
     if (name) {
       await doFetchOne(name);
     } else {
-      for (const trait of traitList) {
+      for (const trait of combinedTraitList) {
         if ($filter[trait]) {
           currentFilter.push(`${trait}=${$filter[trait]}`);
         }
@@ -108,6 +110,7 @@
   <AssetFilter
     {baseUrl}
     {traitList}
+    {numericTraitList}
     {totalCount}
     {disclaimer}
     {rarityUrl}
