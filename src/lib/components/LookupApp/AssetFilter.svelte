@@ -71,6 +71,7 @@
             bind:value={$filter[trait]}
             id={`${trait}Field`}
             label={titleCase(trait)}
+            {handleKeypress}
           />
         </li>
       {/each}
