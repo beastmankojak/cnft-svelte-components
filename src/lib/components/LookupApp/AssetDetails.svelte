@@ -1,5 +1,6 @@
 <script>
   import { display, ipfs, searchForSale, titleCase } from '$lib/utils';
+  import _get from 'lodash/get';
 
   export let asset;
   export let allAttributes;
@@ -19,23 +20,28 @@
     {#each traitList as trait}
       <li>
         <span>&nbsp;{titleCase(trait)}</span>
-        {display(allAttributes, trait, asset[trait])}
+        {display(allAttributes, trait, _get(asset, trait))}
       </li>
     {/each}
     <li><span>&nbsp;Rank:</span> {asset.rank}</li>
     <li><span>&nbsp;Rarity score:</span> {asset.rarityScore.toFixed(2)}</li>
     <li>
       <span>&nbsp;For sale:</span>
-      {#await searchForSale({ project, name: asset[marketplaceSearchParam], verified, policyId, assetTransform })}
-        Loading...
-      {:then listing}{#if listing.forSale}
-          <a href={listing.href} target="_blank">{listing.price} ₳</a>
-        {:else}
-          Not for sale
-        {/if}
-      {:catch err}
-        Error: {err}
-      {/await}
+      {#if asset.listing && asset.listing.price }
+        <a href={asset.listing.url} target="_blank">{asset.listing.price} ₳</a>
+      {:else}
+        {#await searchForSale({ project, name: asset[marketplaceSearchParam], verified, policyId, assetTransform })}
+          Loading...
+        {:then listing}
+          {#if listing.forSale}
+            <a href={listing.href} target="_blank">{listing.price} ₳</a>
+          {:else}
+            Not for sale
+          {/if}
+        {:catch err}
+          Error: {err}
+        {/await}
+      {/if}
     </li>
   </ul>
 </div>

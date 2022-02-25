@@ -42,6 +42,7 @@
   },
   "type": "module",
   "dependencies": {
+    "lodash": "^4.17.21",
     "svelte-simple-modal": "^1.2.0"
   }
 }
