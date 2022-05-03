@@ -110,9 +110,20 @@
   }
   li {
     list-style-type: none;
+    flex-basis: 20%;
+    text-align: left;
+    margin-bottom: 8px;
   }
   label {
-    display: inline;
+    display: block;
+  }
+  select {
+    min-width: 300px;
+    width: 10vw;
+  }
+  input {
+    min-width: 300px;
+    width: 10vw;
   }
   .warning {
     font-weight: bold;

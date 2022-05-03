@@ -15,6 +15,11 @@
 
 <style>
   label {
-    display: inline;
+    display: block;
+  }
+
+  select {
+    min-width: 300px;
+    width: 10vw;
   }
 </style>

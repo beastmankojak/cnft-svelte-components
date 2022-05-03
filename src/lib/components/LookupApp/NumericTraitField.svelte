@@ -10,6 +10,11 @@
 
 <style>
   label {
-    display: inline;
+    display: block;
+  }
+
+  input {
+    min-width: 300px;
+    width: 10vw;
   }
 </style>
