@@ -1,6 +1,8 @@
 <script>
   import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
   import App from './App.svelte';
+
+  const imageUrl = (asset) => `https://beastmankojak.nyc3.cdn.digitaloceanspaces.com/bac/bacChristmas/ipfs/${asset.image.replace('ipfs://', '')}/200.png`
 </script>
 
 <Meta
@@ -35,7 +37,8 @@
     assetTag: 'bacChristmas',
     title: 'BAC Christmas Lookup',
     totalCount: 300,
-    policyId: '2f641f799b2a8fde7a4d3659765f5bbee2f853db32b86668917e3c77'
+    policyId: '2f641f799b2a8fde7a4d3659765f5bbee2f853db32b86668917e3c77',
+    imageUrl
   }}
 />
 

@@ -22,9 +22,14 @@
   export let rarityUrl = 'rarity.html';
   export let placeholder = '';
   export let customSort = {};
+  export let imageUrl = null;
+
+  if (imageUrl === null) {
+    imageUrl = undefined;
+  }
 
   const { defaultSort } = customSort;
-  
+
   let assetsLoading = false;
   let assetsError = '';
   let assets = [];
@@ -137,6 +142,7 @@
         {assetTransform}
         {marketplaceSearchParam}
         {placeholder}
+        {imageUrl}
         bind:page
         on:updatePage={updatePage}
       />
@@ -160,7 +166,7 @@
           return fn;
         }
 
-        const updateImage = (image) => 
+        const updateImage = (image) =>
           new Promise((resolve, reject) => {
             const src = image.getAttribute('data-src');
             image.removeAttribute('data-src');

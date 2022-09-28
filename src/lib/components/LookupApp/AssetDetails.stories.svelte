@@ -1,6 +1,8 @@
 <script>
   import { Meta, Template, Story } from '@storybook/addon-svelte-csf';
   import AssetDetails from './AssetDetails.svelte';
+
+  const imageUrl = (asset) => `https://beastmankojak.nyc3.cdn.digitaloceanspaces.com/bac/bacChristmas/ipfs/${asset.image.replace('ipfs://', '')}/200.png`
 </script>
 
 <Meta
@@ -34,5 +36,23 @@
     traitList: [],
     project: '',
     policyId: ''
+  }}
+/>
+
+<Story
+  name="BAC Christmas"
+  args={{
+    asset: {
+      image: 'ipfs://Qma4Bm4jxBL1Cyn3ATyNVLGfkrRET1qszsik4Qm3cadYKN',
+      name: 'BAC Christmas ####',
+      rarityScore: 100,
+      rank: 1
+    },
+    alt: 'BAC Christmas',
+    allAttributes: {},
+    traitList: [],
+    project: '',
+    policyId: '',
+    imageUrl
   }}
 />

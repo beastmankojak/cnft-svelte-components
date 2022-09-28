@@ -11,11 +11,12 @@
   export let verified;
   export let assetTransform = null;
   export let marketplaceSearchParam = 'name';
+  export let imageUrl = (asset) => `https://ipfs.blockfrost.dev/ipfs/${ipfs(asset)}`
 </script>
 
 <div>
   <h2>{asset.name}</h2>
-  <img src="https://ipfs.blockfrost.dev/ipfs/{ipfs(asset)}" {alt} />
+  <img src="{imageUrl(asset)}" {alt} />
   <ul>
     {#each traitList as trait}
       <li>

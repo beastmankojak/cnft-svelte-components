@@ -16,6 +16,11 @@
   export let assetTransform = null;
   export let marketplaceSearchParam = 'name';
   export let placeholder;
+  export let imageUrl = null;
+
+  if (imageUrl === null) {
+    imageUrl = undefined;
+  }
 
   const dispatch = createEventDispatcher();
   const { open } = getContext('simple-modal');
@@ -31,6 +36,7 @@
       verified,
       assetTransform,
       marketplaceSearchParam,
+      imageUrl
     });
   };
 
@@ -43,7 +49,7 @@
   <Pager on:change={updatePage} bind:page length={assets.length} />
   <ul>
     {#each assets as asset}
-      <li on:click={() => showAsset(asset)}><AssetPreview {asset} {alt} {placeholder} /></li>
+      <li on:click={() => showAsset(asset)}><AssetPreview {asset} {alt} {placeholder} {imageUrl}/></li>
     {/each}
   </ul>
   <Pager on:change={updatePage} bind:page length={assets.length} />
